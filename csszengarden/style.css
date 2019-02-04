@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css?family=Prompt');
+
+
+body{
+    font-family: 'Prompt',serif;
+}
+
+
+
+header{
+    background-color: beige;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    margin-bottom: 2%;
+    padding: 10px;
+
+    /*border: 1px solid;*/
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+header abbr {
+    font-size: 30px;
+    color: indianred;
+}
+
+#zen-summary {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-summary p {
+    padding-left: 3%;
+}
+
+#css-zen-garden {
+    /*background-image: linear-gradient(90deg, #ffb7fa, #d3ffe6);*/
+    background-size: cover;
+    background-image: url("https://images.unsplash.com/photo-1546593064-053d21199be1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80");
+}
+
+
+#zen-summary a {
+    background-color: lightgreen;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    transition: 0.5s;
+    text-decoration: dotted;
+}
+
+#zen-summary abbr {
+    font-size: 25px;
+    color: darkred;
+}
+
+#zen-summary a:hover{
+    /*background-color: red;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 30px;
+
+    /*border-radius: 20px;*/
+    /*box-sizing: border-box;*/
+    /*padding: 5px 15px;*/
+}
+
+#zen-preamble {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-preamble h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 70%;
+    text-align: center;
+    border-radius: 25px;
+
+
+}
+
+#zen-preamble p {
+    padding-left: 50px;
+}
+
+#zen-preamble abbr {
+    font-size: 25px;
+    color: darkred;
+}
+
+#zen-explanation {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-explanation h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#zen-explanation p {
+    padding-left: 50px;
+}
+
+#zen-explanation abbr {
+    font-size: 25px;
+    color: darkred;
+}
+
+
+#zen-participation {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-participation h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#zen-participation p {
+    padding-left: 50px;
+}
+
+#zen-participation a {
+    background-color: lightgreen;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    transition: 0.5s;
+    text-decoration: dotted;
+}
+
+#zen-participation a:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 25px;
+}
+
+#zen-benefits {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-benefits p {
+    padding-left: 50px;
+}
+
+#zen-benefits h3{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#zen-benefits abbr {
+    font-size: 25px;
+    color: darkred;
+}
+
+#zen-requirements {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*padding-left: 5%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    /*text-align: center;*/
+    margin-bottom: 2%;
+    padding: 10px 5px;
+}
+
+#zen-requirements p {
+    padding-left: 50px;
+}
+
+#zen-requirements h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+}
+
+#zen-requirements abbr {
+    font-size: 25px;
+    color: darkred;
+}
+
+#zen-requirements a {
+    background-color: lightgreen;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    transition: 0.5s;
+    text-decoration: dotted;
+}
+
+
+footer a {
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 5px 15px;
+    transition: 0.5s;
+    text-decoration: dotted;
+
+}
+
+footer {
+    margin-left: 37%;
+}
+
+footer a:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 25px;
+}
+
+
+#design-selection {
+    margin: 3% 10% 2% 10%;
+    padding: 10px 5px;
+
+}
+
+#design-selection h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+    background-image: linear-gradient(90deg, #ffb7fa, #d3ffe6);
+}
+
+
+
+#design-selection nav {
+    margin-left: 5%;
+}
+
+#design-selection a {
+    font-size: 15px;
+}
+
+#design-selection li {
+    margin-left: 3%;
+    margin-right: 60%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-bottom: 3%;
+    transition: 1.0s;
+    background-image: linear-gradient(90deg, #ffb7fa, #d3ffe6);
+}
+
+
+#design-selection li:hover {
+    margin-right: 50%;
+}
+
+.design-archives {
+    margin: 3% 10% 2% 10%;
+    padding: 10px 5px;
+}
+
+#design-archives h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+    background-image: linear-gradient(90deg, #91ffa6, #d3ffe6);
+}
+
+#design-archives nav {
+    margin-left: 5%;
+}
+
+#design-archives a {
+    font-size: 15px;
+}
+
+#design-archives li {
+    margin-left: 3%;
+    margin-right: 60%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-bottom: 3%;
+    transition: 1.0s;
+    background-image: linear-gradient(90deg, #91ffa6, #d3ffe6);
+}
+
+
+#design-archives li:hover {
+    margin-right: 50%;
+}
+
+
+
+
+.zen-resources {
+    margin: 3% 10% 2% 10%;
+    padding: 10px 5px;
+}
+
+#zen-resources h3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 3%;
+    margin-right: 75%;
+    text-align: center;
+    border-radius: 25px;
+    background-image: linear-gradient(90deg, #ffd632, #d3ffe6);
+}
+
+#zen-resources nav {
+    margin-left: 5%;
+}
+
+#zen-resources a {
+    font-size: 15px;
+}
+
+#zen-resources li {
+    margin-left: 8%;
+    margin-right: 56%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-bottom: 3%;
+    transition: 1.0s;
+    background-image: linear-gradient(90deg, #ffd632, #d3ffe6);
+}
+
+
+#zen-resources li:hover {
+    margin-right: 50%;
+}
+
