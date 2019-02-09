@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <style>
+        .form-control-borderless {
+            border: none;
+        }
+
+        .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="container text-center mt-5" style="font-size: 60px">
+        Basketball team search
+    </div>
+    <br/>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input id="inputtext" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search names">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="button" id="enter">Search</button>
+                    </div>
+                    <!--end of col-->
+
+                </div>
+            </form>
+
+            <form class="card card-sm mt-2" style="border: none ; display: none" id="advanse">
+                <div class="card-body row no-gutters align-items-center ml-5" >
+
+                    <div>
+                        <input id="getlocation" style="border-radius: 20px" class="form-control" type="search" placeholder="Search location">
+                    </div>
+
+                    <div>
+                        <input id="getscore" style="border-radius: 20px" class="form-control" type="search" placeholder="Search score">
+                    </div>
+
+                    <div>
+                        <input id="geturl" style="border-radius: 20px" class="form-control" type="search" placeholder="Search logoUrl">
+                    </div>
+
+                </div>
+
+                <div class="col-auto text-center">
+                    <button class="btn btn-lg btn-danger" type="button" id="moveup" >Move up</button>
+                </div>
+            </form>
+
+
+        </div>
+        <!--end of col-->
+    </div>
+
+        <div class="container mt-5">
+            <table class="table table-striped" id="table">
+                <thead>
+                <tr>
+                    <th data-field="name">Name</th>
+                    <th data-field="location">location</th>
+                    <th data-field="score">Score</th>
+                    <th data-field="logoUrl">logoUrl</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "basketballteam.json",
+                dataType: "json"
+            }).done(function(response) {
+                console.log(response);
+                console.log(response[0]["name"]);
+                // console.log(response.length);
+                var i ;
+                for (i=0 ; i<response.length ; i++) {
+                    $("#table").find('tbody').append('<tr><td>'+response[i]["name"]+'</td><td>' + response[i]["location"] + '</td><td>' + response[i]["score"] + '</td><td>' + response[i]["logoUrl"] + '</td></tr>');
+                }
+            });
+
+            $('#moveup').click(function () {
+                $('#advanse').fadeOut();
+            })
+
+            $('#enter').click(function () {
+                var inputsearch = $('#inputtext').val();
+                $('#advanse').fadeIn();
+                // console.log(inputsearch);
+                $.ajax({
+                    url: "basketballteam.json",
+                    dataType: "json"
+                }).done(function(response) {
+                    var i ;
+                    var array = [];
+                    for (i=0 ; i<response.length ; i++) {
+                        var check = '';
+                        var j;
+                        for (j=0 ; j<inputsearch.length ; j++) {
+                            check += response[i]['name'].charAt(j);
+                            // console.log(check);
+                        }
+                        // console.log(check);
+                        if (check === inputsearch) {
+                            console.log(check);
+                            // array.push($("#table").find('tbody').append('<tr><td>'+response[i]["name"]+'</td><td>' + response[i]["code"] + '</td></tr>'));
+                            array.push(response[i]["name"]);
+                        }
+                    }
+                    // console.log(array);
+                    $("#table tr").remove();
+                    $("#table").find('tbody').append('<tr><th>Name</th><td>location</td><td>Score</td><td>logoUrl</td></tr>');
+
+
+                    var keepdata = [];
+                    if (array.length !== 0) {
+                        console.log("COrrect");
+                        keepdata.push($('#getlocation').val());
+                        keepdata.push($('#getscore').val());
+                        keepdata.push($('#geturl').val());
+                    }
+
+                    console.log(keepdata)
+
+                    var z ;
+                    var y ;
+                    for (y=0 ; y<array.length ; y++) {
+                        for (z=0 ; z<response.length ; z++) {
+                            if (response[z]['name'] === array[y] && $('#getlocation').val() === "" && $('#getscore').val() === "" && $('#geturl').val() === "") {
+                                // console.log(array[z]);
+                                $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+                                console.log("correct");
+
+                            }
+                            else if (response[z]['name'] === array[y] && ( $('#getlocation').val() !== "" || $('#getscore').val() !== "" || $('#geturl').val() !== "")) {
+                                keepdata.forEach(function (element) {
+
+                                    var chagetype = ""+response[z]['score'];
+
+                                    if (element === response[z]['location'] ) {
+                                        if (response[z]['name'] === array[y] && $('#getlocation').val() === response[z]['location'] && $('#getscore').val() === "" && $('#geturl').val() === "" ){
+                                            console.log("test")
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+                                    }
+                                    else if (element === chagetype)  {
+                                        if (response[z]['name'] === array[y] && $('#getscore').val() === ""+response[z]['score'] && $('#getlocation').val() === "" && $('#geturl').val() === "" ) {
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+                                    }
+                                    else if (element === response[z]['logoUrl'])  {
+                                        if (response[z]['name'] === array[y] && $('#geturl').val() === ""+response[z]['logoUrl'] && $('#getscore').val() === "" && $('#getlocation').val() === "" ) {
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+                                    }
+                                    else {
+
+                                        if (response[z]['name'] === array[y] && $('#getlocation').val() === response[z]['location'] && $('#getscore').val() === ""+response[z]['score'] && $('#geturl').val() === "" ){
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+
+                                        else if (response[z]['name'] === array[y] && $('#getlocation').val() === response[z]['location'] && $('#getscore').val() === "" && $('#geturl').val() === ""+response[z]['logoUrl'] ){
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+                                        else if (response[z]['name'] === array[y] && $('#getlocation').val() === "" && $('#getscore').val() === ""+response[z]['score'] && $('#geturl').val() === ""+response[z]['logoUrl'] ){
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+                                        else if (response[z]['name'] === array[y] && $('#getlocation').val() === response[z]['location'] && $('#getscore').val() === ""+response[z]['score'] && $('#geturl').val() === ""+response[z]['logoUrl'] ){
+                                            $("#table").find('tbody').append('<tr><td>'+response[z]["name"]+'</td><td>' + response[z]["location"] + '</td><td>' + response[z]["score"] + '</td><td>' + response[z]["logoUrl"] + '</td></tr>');
+
+                                        }
+
+
+
+                                    }
+
+                                })
+                            }
+                        }
+                    }
+                });
+
+            })
+        });
+
+    </script>
+
+
+</body>
+</html>
